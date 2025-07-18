@@ -1,19 +1,21 @@
-import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
+import { hopeTheme } from 'vuepress-theme-hope'
 import { viteBundler } from '@vuepress/bundler-vite'
+
 
 export default defineUserConfig({
   lang: 'en-US',
+  title: 'Tech Docs',
+  description: 'Documentation site',
+  base: '/tech-doc/',
 
-  title: 'VuePress',
-  description: 'My first VuePress Site',
-
-  base: 'tech-doc',
-
-  theme: defaultTheme({
-    logo: 'https://vuejs.press/images/hero.png',
-
-    navbar: ['/', '/get-started'],
+  theme: hopeTheme({
+    navbar: [
+      { text: 'Home', link: '/' },
+      { text: 'Git', link: '/git/' },
+    ],
+    sidebar: 'structure',
+    sidebarDepth: 2,
   }),
 
   bundler: viteBundler(),
